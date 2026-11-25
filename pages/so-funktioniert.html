@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So funktioniert QR-Bezahlen</title>
+<meta name="description" content="In fünf Schritten vom Tischcode zum Beleg, mit einer kleinen Handy-Demo zum Ausprobieren. Beispiel, kein echter QR-Code, keine echte Zahlung.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/cart.css">
+<link rel="stylesheet" href="../css/so.css">
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/so.js" defer></script>
+</head>
+<body>
+<main id="main">
+  <section class="band so-hero">
+    <p class="so-eyebrow" data-reveal>So funktioniert es <span class="so-tag">Demo</span></p>
+    <h1 data-words>Vom Tischcode zum Beleg.</h1>
+    <p class="so-lead" data-reveal>Dein Gast scannt den Code am Tisch, sieht die digitale Karte, bestellt, bezahlt und bekommt den Beleg aufs Handy. Fünf Schritte, ohne Warten auf die Rechnung. Probier sie unten selbst aus.</p>
+    <p class="so-actions" data-reveal><a class="so-btn" href="#demo">Zur Mini-Demo</a> <a class="so-btn so-btn--ghost" href="#tablet">Tablet-Kasse</a></p>
+  </section>
+
+  <section class="band so-sec" id="demo" aria-labelledby="h-demo">
+    <div class="so-wrap">
+      <h2 id="h-demo" data-reveal>Fünf Schritte zum Ausprobieren.</h2>
+      <p class="so-note">Die Demo rechts ist ein Beispiel: kein echter QR-Code, kein Zahlungslink, ein Testbetrag. Es wird nichts gesendet und nichts abgebucht.</p>
+      <div class="so-grid">
+        <ol class="so-steps" id="so-steps">
+          <li><button type="button" data-go="0"><span><strong>Gast scannt den Tischcode</strong><span>Am Tisch steht ein Code. Das Handy öffnet die Karte, ohne App und ohne Anmeldung.</span></span></button></li>
+          <li><button type="button" data-go="1"><span><strong>Digitale Karte ansehen</strong><span>Gerichte und Getränke mit Preisen. Mit einem Tippen kommt etwas auf die Bestellung.</span></span></button></li>
+          <li><button type="button" data-go="2"><span><strong>Bestellung prüfen</strong><span>Der Gast sieht alle Positionen und die Summe, bevor etwas passiert.</span></span></button></li>
+          <li><button type="button" data-go="3"><span><strong>Bezahlen</strong><span>Der Gast bestätigt die Zahlung. In dieser Demo mit einem Testbetrag und ohne echte Kartendaten.</span></span></button></li>
+          <li><button type="button" data-go="4"><span><strong>Beleg auf dem Handy</strong><span>Der Beleg erscheint sofort. Das Lokal sieht, dass der Tisch bezahlt hat.</span></span></button></li>
+        </ol>
+
+        <div class="so-phonewrap">
+          <div class="so-phone" id="so-phone" role="group" aria-label="Handy-Mini-Demo, Beispiel">
+            <div class="so-screen" data-screen="0">
+              <span class="so-badge">Demo</span>
+              <h3>Tisch 7: Code scannen</h3>
+              <div class="so-qr" aria-hidden="true"><span>Beispiel, kein echter QR-Code</span></div>
+              <p>So sieht der Tischcode aus. Tippe auf „Scannen“, um die Karte zu öffnen.</p>
+              <div class="so-nav"><button type="button" class="so-btn" data-next>Scannen</button></div>
+            </div>
+            <div class="so-screen" data-screen="1">
+              <span class="so-badge">Demo</span>
+              <h3>Karte, Tisch 7</h3>
+              <p class="so-status">Beispiel-Café: Preise sind Beispiele.</p>
+              <ul class="so-menu" id="so-menu"></ul>
+              <p class="so-status" id="so-count" role="status" aria-live="polite">Noch nichts gewählt.</p>
+              <div class="so-nav"><button type="button" class="so-btn so-btn--ghost" data-prev>Zurück</button><button type="button" class="so-btn" data-next id="so-to-order" disabled>Weiter</button></div>
+            </div>
+            <div class="so-screen" data-screen="2">
+              <span class="so-badge">Demo</span>
+              <h3>Deine Bestellung</h3>
+              <ul class="so-lines" id="so-lines"></ul>
+              <p class="so-total"><span>Summe (Beispiel)</span><span id="so-sum">0,00 €</span></p>
+              <div class="so-nav"><button type="button" class="so-btn so-btn--ghost" data-prev>Zurück</button><button type="button" class="so-btn" data-next>Zur Zahlung</button></div>
+            </div>
+            <div class="so-screen" data-screen="3">
+              <span class="so-badge">Demo</span>
+              <h3>Bezahlen</h3>
+              <div class="so-pay">
+                <label class="so-field" for="so-card">Testkarte (Beispiel)<input id="so-card" value="4242 4242 4242 4242" readonly aria-describedby="so-cardnote"></label>
+                <p class="so-status" id="so-cardnote">Keine echte Karte, keine echte Zahlung. Es bewegt sich kein echtes Geld.</p>
+                <p class="so-total"><span>Testbetrag</span><span id="so-sum2">0,00 €</span></p>
+              </div>
+              <div class="so-nav"><button type="button" class="so-btn so-btn--ghost" data-prev>Zurück</button><button type="button" class="so-btn" data-next>Test-Zahlung bestätigen</button></div>
+            </div>
+            <div class="so-screen" data-screen="4">
+              <span class="so-badge">Demo</span>
+              <span class="so-ok" aria-hidden="true">✓</span>
+              <h3>Test-Zahlung angenommen</h3>
+              <p class="so-status">Beleg, Beispiel. Nr. DEMO-0007, Tisch 7.</p>
+              <ul class="so-lines" id="so-rlines"></ul>
+              <p class="so-total"><span>Gesamt (Beispiel)</span><span id="so-sum3">0,00 €</span></p>
+              <div class="so-nav"><button type="button" class="so-btn so-btn--ghost" data-restart>Von vorn</button></div>
+            </div>
+          </div>
+          <p class="so-note" style="margin-top:1rem">Demo-Shop: nur Testzahlungen, es bewegt sich kein echtes Geld.</p>
+        </div>
+      </div>
+      <noscript><p>Die Mini-Demo braucht JavaScript. Die fünf Schritte stehen oben: Code scannen, Karte ansehen, Bestellung prüfen, bezahlen, Beleg erhalten.</p></noscript>
+    </div>
+  </section>
+
+  <section class="band band--dark so-sec" id="tablet" aria-labelledby="h-tab">
+    <div class="so-wrap">
+      <h2 id="h-tab" data-reveal>Und im Lokal: die Tablet-Kasse.</h2>
+      <div class="so-tablet">
+        <div data-reveal>
+          <p>Am Tresen oder beim Servieren läuft dieselbe Bestellung auf dem Tablet zusammen. Du siehst, welcher Tisch bestellt und bezahlt hat, und kannst Positionen ergänzen oder eine Barzahlung buchen.</p>
+          <p>Welche Geräte und Pakete es gibt, steht auf der Services-Seite. Alle Preise dort sind Demo-Preise.</p>
+          <p class="so-actions"><a class="so-btn" href="services.html">Pakete ansehen</a> <a class="so-btn so-btn--ghost" href="demo-termin.html">Demo-Termin anfragen</a></p>
+        </div>
+        <div class="so-tab" role="img" aria-label="Schematische Tablet-Kasse, Beispiel">
+          <div class="row"><div class="key">Tisch 6</div><div class="key">Tisch 7 bezahlt</div><div class="key">Tisch 8</div></div>
+          <div class="sum"><span>Offen (Beispiel)</span><span>34,50 €</span></div>
+          <div class="row"><div class="key">+ Position</div><div class="key">Bar</div><div class="key">Beleg</div></div>
+        </div>
+      </div>
+      <p class="so-note">Schematische Darstellung mit Beispielzahlen. Fiktives Demo-Unternehmen. Preise und Leistungen sind Beispiele, keine Angebote.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
