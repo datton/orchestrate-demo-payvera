@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gebühren- und Preisrechner</title>
+<meta name="description" content="Beispielrechnung: Was kosten Kartenzahlungen und QR-Bezahlen im Monat mit und ohne Payvera-Paket? Eigene Zahlen eingeben, Ergebnis live sehen. Demo, kein Angebot.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/cart.css">
+<link rel="stylesheet" href="../css/rechner.css">
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/rechner.js" defer></script>
+</head>
+<body>
+<main id="main">
+  <section class="band rc-hero">
+    <p class="rc-eyebrow" data-reveal>Rechner <span class="rc-demo">Beispielrechnung, kein Angebot</span></p>
+    <h1 data-words>Was kostet dich das Bezahlen im Monat?</h1>
+    <p class="rc-lead" data-reveal>Gib deinen Umsatz und deine Zahlarten ein. Wir rechnen live aus, was Gebühren im Monat ausmachen können, mit und ohne Payvera-Paket. Die Gebührensätze sind eigene Beispielwerte, die du ändern kannst.</p>
+  </section>
+
+  <section class="band rc-sec" aria-labelledby="h-calc">
+    <h2 id="h-calc" data-reveal>Deine Zahlen.</h2>
+    <div class="rc-layout">
+      <form class="rc-form" id="rc-form" novalidate>
+        <fieldset>
+          <legend>Dein Betrieb</legend>
+          <div class="rc-field"><label for="f-umsatz">Monatsumsatz (EUR)</label><input id="f-umsatz" name="umsatz" type="number" inputmode="decimal" min="0" max="10000000" step="100" value="30000"><p class="rc-err" id="e-umsatz" role="alert"></p></div>
+          <div class="rc-field"><label for="f-bon">Durchschnittlicher Bon (EUR)</label><input id="f-bon" name="bon" type="number" inputmode="decimal" min="1" max="10000" step="0.5" value="24"><p class="rc-err" id="e-bon" role="alert"></p></div>
+          <div class="rc-field"><label for="f-tische">Anzahl Tische</label><input id="f-tische" name="tische" type="number" inputmode="numeric" min="0" max="500" step="1" value="12"><p class="rc-err" id="e-tische" role="alert"></p></div>
+          <div class="rc-field"><label for="f-geraete">Anzahl Geräte (Tablets)</label><input id="f-geraete" name="geraete" type="number" inputmode="numeric" min="0" max="20" step="1" value="2"><p class="rc-err" id="e-geraete" role="alert"></p></div>
+        </fieldset>
+        <fieldset>
+          <legend>Zahlarten in Prozent des Umsatzes</legend>
+          <div class="rc-field"><label for="f-qr">Anteil QR (%)</label><input id="f-qr" name="qr" type="number" inputmode="decimal" min="0" max="100" step="1" value="35"><p class="rc-err" id="e-qr" role="alert"></p></div>
+          <div class="rc-field"><label for="f-karte">Anteil Karte (%)</label><input id="f-karte" name="karte" type="number" inputmode="decimal" min="0" max="100" step="1" value="40"><p class="rc-err" id="e-karte" role="alert"></p></div>
+          <p class="rc-bar-note">Der Rest ist bar: <strong id="r-bar">25 %</strong></p>
+        </fieldset>
+        <fieldset>
+          <legend>Beispiel-Gebührensätze <span class="rc-tag">eigene Demo-Zahlen</span></legend>
+          <div class="rc-field"><label for="f-ohne">Beispielgebühr ohne Paket (% pro unbarer Zahlung)</label><input id="f-ohne" name="ohne" type="number" inputmode="decimal" min="0" max="10" step="0.1" value="2"><p class="rc-err" id="e-ohne" role="alert"></p></div>
+          <div class="rc-field"><label for="f-mit">Beispielgebühr mit Paket (% pro unbarer Zahlung)</label><input id="f-mit" name="mit" type="number" inputmode="decimal" min="0" max="10" step="0.1" value="1.2"><p class="rc-err" id="e-mit" role="alert"></p></div>
+          <p class="rc-note">Das sind keine echten Gebührensätze, sondern Beispielwerte zum Ausprobieren.</p>
+        </fieldset>
+        <button type="button" class="rc-btn rc-btn--ghost" id="rc-reset">Zurücksetzen</button>
+      </form>
+
+      <div class="rc-result" aria-labelledby="h-res">
+        <h3 id="h-res">Dein Ergebnis pro Monat</h3>
+        <p class="rc-sr" id="rc-live" role="status" aria-live="polite"></p>
+        <dl class="rc-nums">
+          <div><dt>Unbare Zahlungen (Anzahl)</dt><dd id="r-count">–</dd></div>
+          <div><dt>Gebühren ohne Paket</dt><dd id="r-ohne">–</dd></div>
+          <div><dt>Gebühren mit Paket</dt><dd id="r-mit">–</dd></div>
+          <div class="rc-big"><dt>Ersparnis pro Monat</dt><dd id="r-saving">–</dd></div>
+        </dl>
+        <div class="rc-compare" aria-hidden="true">
+          <div class="rc-row"><span>Ohne</span><span class="rc-track"><span class="rc-fill rc-fill--ohne" id="b-ohne"></span></span></div>
+          <div class="rc-row"><span>Mit</span><span class="rc-track"><span class="rc-fill rc-fill--mit" id="b-mit"></span></span></div>
+        </div>
+        <p class="rc-pay" id="rc-pay"></p>
+        <p class="rc-note">Beispielrechnung, kein Angebot. Gebühren fallen hier nur auf QR- und Kartenzahlungen an, Barzahlungen sind gebührenfrei gerechnet.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--dark rc-sec rc-pkg" aria-labelledby="h-pkg">
+    <h2 id="h-pkg" data-reveal>Das passende Paket.</h2>
+    <div id="rc-pkg-box" class="rc-pkg-box" aria-live="polite">
+      <p id="rc-pkg-text">Das Paket wird geladen …</p>
+    </div>
+    <p class="rc-actions">
+      <button type="button" class="rc-btn" id="rc-add" disabled>Passendes Paket in den Warenkorb</button>
+      <a class="rc-btn rc-btn--ghost" href="services.html">Alle Pakete ansehen</a>
+    </p>
+    <p class="rc-status" id="rc-status" role="status" aria-live="polite"></p>
+    <p class="rc-test">Demo-Shop: nur Testzahlungen, es bewegt sich kein echtes Geld.</p>
+  </section>
+
+  <section class="band rc-end">
+    <p class="guide-note" data-reveal>Fiktives Demo-Unternehmen. Preise und Leistungen sind Beispiele, keine Angebote. Deine Eingaben bleiben in diesem Browser, es wird nichts gesendet.</p>
+  </section>
+</main>
+</body>
+</html>
