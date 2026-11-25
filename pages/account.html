@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meine Käufe</title>
+<meta name="description" content="Alle bezahlten Bestellungen und ihr Stand. Demo: nur Testzahlungen.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/order.css">
+<link rel="stylesheet" href="../css/shop/account.css">
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/shop/account.js" defer></script>
+</head>
+<body>
+<main id="main">
+  <section class="band ord">
+    <div class="ord__wrap">
+      <p class="ord__eyebrow" data-reveal>Meine Käufe <span class="ord__badge">Demo</span></p>
+      <h1 class="ord__title" data-words>Deine Bestellungen</h1>
+      <div id="account-root" aria-live="polite"><p class="ord__muted">Wir laden deine Käufe …</p></div>
+      <p class="ord__muted ord__gate">Demo: Deine Bestellungen merkt sich nur dieser Browser. Es wird nichts verschickt; Payvera ist eine fiktive Firma.</p>
+      <p class="ord__test">Demo-Shop: nur Testzahlungen, es bewegt sich kein echtes Geld.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
