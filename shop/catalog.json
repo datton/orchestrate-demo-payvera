@@ -1,0 +1,267 @@
+{
+ "brand": {
+  "name": "Payvera",
+  "short": "Payvera",
+  "kind": "services",
+  "tagline": "Fiktive Demo-Firma: Kassen-Tablets, QR-Codes und digitale Speisekarten"
+ },
+ "currency": "EUR",
+ "timezone": "Europe/Berlin",
+ "demo": true,
+ "stores": [],
+ "categories": [
+  {
+   "id": "qr",
+   "name": "QR-Codes",
+   "blurb": "Tisch-QR-Sets und Bezahlen per QR-Code"
+  },
+  {
+   "id": "tablets",
+   "name": "Tablets",
+   "blurb": "Die Tablet-Kasse für Theke und Tisch"
+  },
+  {
+   "id": "menus",
+   "name": "Speisekarten",
+   "blurb": "Digitale Speisekarte und ihre Einrichtung"
+  },
+  {
+   "id": "zubehoer",
+   "name": "Zubehör",
+   "blurb": "Aufsteller und Schulung für dein Team"
+  }
+ ],
+ "options": {
+  "ausfuehrung": {
+   "name": "Ausführung",
+   "type": "one",
+   "required": true,
+   "choices": [
+    {
+     "id": "acryl",
+     "name": "Acryl, klar",
+     "price": 0,
+     "default": true
+    },
+    {
+     "id": "holz",
+     "name": "Holz, hell",
+     "price": 800
+    }
+   ]
+  },
+  "farbe": {
+   "name": "Gehäuse",
+   "type": "one",
+   "required": true,
+   "choices": [
+    {
+     "id": "weiss",
+     "name": "Weiß",
+     "price": 0,
+     "default": true
+    },
+    {
+     "id": "schwarz",
+     "name": "Schwarz",
+     "price": 0
+    }
+   ]
+  },
+  "tablet_extras": {
+   "name": "Extras",
+   "type": "many",
+   "required": false,
+   "choices": [
+    {
+     "id": "halterung",
+     "name": "Tischhalterung",
+     "price": 6900
+    },
+    {
+     "id": "huelle",
+     "name": "Schutzhülle",
+     "price": 2900
+    }
+   ]
+  },
+  "sprachen": {
+   "name": "Sprachen",
+   "type": "one",
+   "required": true,
+   "choices": [
+    {
+     "id": "de",
+     "name": "Deutsch",
+     "price": 0,
+     "default": true
+    },
+    {
+     "id": "de-en",
+     "name": "Deutsch und Englisch",
+     "price": 1500
+    }
+   ]
+  },
+  "schulung_form": {
+   "name": "Format",
+   "type": "one",
+   "required": true,
+   "choices": [
+    {
+     "id": "online",
+     "name": "Online",
+     "price": 0,
+     "default": true
+    },
+    {
+     "id": "vor-ort",
+     "name": "Bei dir vor Ort",
+     "price": 9000
+    }
+   ]
+  }
+ },
+ "items": [
+  {
+   "id": "tisch-qr-set",
+   "name": "Tisch-QR-Set",
+   "category": "qr",
+   "price": 3900,
+   "options": [
+    "ausfuehrung"
+   ],
+   "desc": "Ein Set für zwölf Tische: ein QR-Code pro Tisch, der zu deiner Speisekarte oder zur Bezahlseite führt. Menge = Anzahl Sets. Preis pro Set. Fiktives Demo-Angebot.",
+   "includes": [
+    "12 Tisch-QR-Codes",
+    "Aufsteller in deiner Ausführung",
+    "Codes passend zu deinem Namen"
+   ],
+   "tags": [
+    "popular"
+   ],
+   "soldOut": false,
+   "perPerson": true,
+   "unit": "Set",
+   "badge": "Beliebt"
+  },
+  {
+   "id": "bezahl-qr",
+   "name": "Bezahl-QR",
+   "category": "qr",
+   "price": 4900,
+   "options": [],
+   "desc": "Deine Gäste scannen den Code am Tisch und bezahlen am Handy. Einrichtung für ein Lokal. Preis pro Standort und Monat. Es werden hier keine Gebührensätze genannt. Fiktives Demo-Angebot.",
+   "includes": [
+    "Bezahlseite mit deinem Namen",
+    "Code pro Tisch",
+    "Einrichtung für einen Standort"
+   ],
+   "tags": [],
+   "soldOut": false,
+   "unit": "Standort"
+  },
+  {
+   "id": "tablet-kasse",
+   "name": "Tablet-Kasse",
+   "category": "tablets",
+   "price": 44900,
+   "options": [
+    "farbe",
+    "tablet_extras"
+   ],
+   "desc": "Ein Tablet mit unserer Kassen-Oberfläche für Theke oder Tisch, startklar eingerichtet. Menge = Anzahl Geräte. Preis pro Gerät. Fiktives Demo-Angebot.",
+   "includes": [
+    "Tablet mit Kassen-Oberfläche",
+    "Einrichtung vorab",
+    "Netzteil und Kabel"
+   ],
+   "tags": [],
+   "soldOut": false,
+   "perPerson": true,
+   "unit": "Gerät",
+   "badge": "Kasse"
+  },
+  {
+   "id": "digitale-speisekarte",
+   "name": "Digitale Speisekarte",
+   "category": "menus",
+   "price": 2900,
+   "options": [
+    "sprachen"
+   ],
+   "desc": "Deine Speisekarte als Seite, die per QR-Code erreichbar ist: Kategorien, Preise und Allergenhinweise, die du selbst pflegst. Preis pro Monat. Fiktives Demo-Angebot.",
+   "includes": [
+    "Speisekarte als Seite",
+    "Selbst pflegbar",
+    "Passender QR-Code"
+   ],
+   "tags": [],
+   "soldOut": false,
+   "unit": "Monat"
+  },
+  {
+   "id": "speisekarte-einrichtung",
+   "name": "Einrichtung der Speisekarte",
+   "category": "menus",
+   "price": 19000,
+   "options": [
+    "sprachen"
+   ],
+   "desc": "Wir übertragen deine bestehende Karte in die digitale Speisekarte und richten alles für dich ein. Einmalig. Fiktives Demo-Angebot.",
+   "includes": [
+    "Karte von uns eingetragen",
+    "Eine Runde Änderungen",
+    "Kurze Einweisung"
+   ],
+   "tags": [],
+   "soldOut": false
+  },
+  {
+   "id": "aufsteller",
+   "name": "Tischaufsteller",
+   "category": "zubehoer",
+   "price": 1900,
+   "options": [
+    "ausfuehrung"
+   ],
+   "desc": "Ein Aufsteller für einen QR-Code, in deiner Ausführung. Menge = Anzahl Aufsteller. Preis pro Stück. Fiktives Demo-Angebot.",
+   "includes": [
+    "Aufsteller für einen Tisch",
+    "Ausführung zur Wahl"
+   ],
+   "tags": [],
+   "soldOut": false,
+   "perPerson": true,
+   "unit": "Stück"
+  },
+  {
+   "id": "schulung",
+   "name": "Team-Schulung",
+   "category": "zubehoer",
+   "price": 14000,
+   "options": [
+    "schulung_form"
+   ],
+   "desc": "Eine Schulung für dein Team an Kasse, Bezahl-QR und Speisekarte, rund eine Stunde. Fiktives Demo-Angebot.",
+   "includes": [
+    "Rund eine Stunde",
+    "Fragen zu deinem Alltag",
+    "Notizen danach"
+   ],
+   "tags": [],
+   "soldOut": false
+  }
+ ],
+ "coupons": [
+  {
+   "code": "START10",
+   "name": "10 % auf deine erste Bestellung",
+   "type": "percent",
+   "value": 10,
+   "appliesTo": "order",
+   "maxDiscount": 9000,
+   "firstOrderOnly": true
+  }
+ ]
+}
