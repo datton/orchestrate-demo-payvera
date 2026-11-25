@@ -1,0 +1,42 @@
+/* Händler-Geschichten (Senior Dev 7). Nur Variablen aus css/tokens.css. */
+main .band > * { margin-inline: 0; }
+.hd-hero { min-height: 70svh; display: grid; align-content: center; padding-block: clamp(6rem, 14vw, 10rem) clamp(2.5rem, 5vw, 4rem); background: var(--glow, none), linear-gradient(135deg, var(--accent-soft), var(--bg) 65%); }
+.hd-eyebrow { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .85rem; color: var(--accent-strong); margin: 0 0 1rem; }
+.hd-hero h1 { font-family: var(--font-display); font-size: var(--fs-h1); letter-spacing: -.03em; line-height: 1.05; margin: 0 0 1.25rem; max-width: 14ch; text-wrap: balance; }
+.hd-lead { font-size: var(--fs-lg); max-width: 58ch; margin: 0 0 1rem; }
+.hd-tag { display: inline-block; padding: .1rem .65rem; border-radius: 999px; background: var(--accent-soft); color: var(--text); font-size: .8rem; font-weight: 700; letter-spacing: 0; text-transform: none; vertical-align: middle; }
+.hd-marquee { padding-block: clamp(2rem, 5vw, 3.5rem); overflow: hidden; }
+.hd-marquee-text { font-family: var(--font-display); font-size: var(--fs-giant); font-weight: 800; letter-spacing: -.03em; line-height: 1; white-space: nowrap; }
+.hd-sec h2 { font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: -.02em; line-height: 1.1; margin: 0 0 1.5rem; max-width: 18ch; text-wrap: balance; }
+.hd-filter { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1rem; }
+.hd-chip { font: inherit; font-weight: 600; min-height: 2.75rem; padding: .55rem 1.2rem; border-radius: 999px; border: 2px solid var(--field-line); background: var(--surface); color: var(--text); cursor: pointer; transition: transform .25s cubic-bezier(.2,.7,.2,1), background .2s; }
+.hd-chip:hover { transform: translateY(-2px); border-color: var(--accent); }
+.hd-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.hd-chip:focus-visible, .hd-btn:focus-visible, .hd-pk a:focus-visible { outline: 3px solid var(--focus, var(--accent)); outline-offset: 3px; }
+.hd-count { color: var(--text-muted); font-weight: 600; margin: 0 0 2rem; }
+.hd-list { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr)); }
+.hd-story { background: var(--surface); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); border-top: 8px solid var(--accent); min-width: 0; scroll-margin-top: 6rem; }
+.hd-story[hidden] { display: none; }
+.hd-branche { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; color: var(--accent-strong); margin: 0 0 .5rem; }
+.hd-story h3 { font-family: var(--font-display); font-size: var(--fs-step); line-height: 1.15; margin: 0 0 1rem; }
+.hd-story-text { margin: 0 0 1.25rem; max-width: 55ch; }
+.hd-metrics { margin: 0 0 .75rem; display: grid; gap: 1rem; }
+.hd-metric dt { font-weight: 700; margin-bottom: .4rem; }
+.hd-metric dd { margin: 0; display: grid; gap: .25rem; }
+.hd-bar { display: block; height: .7rem; width: var(--w); border-radius: 999px; }
+.hd-bar--vor { background: var(--text-muted); }
+.hd-bar--nach { background: var(--accent); }
+.hd-val { font-size: var(--fs-sm); margin-bottom: .35rem; }
+.hd-fine { font-size: var(--fs-sm); color: var(--text-muted); margin: 0 0 1rem; }
+.hd-pk-h { font-weight: 700; margin: 0 0 .4rem; }
+.hd-pk ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.hd-pk a { display: inline-block; padding: .45rem .95rem; border-radius: 999px; background: var(--accent-soft); color: var(--text); font-weight: 600; text-decoration: none; border: 2px solid var(--accent); overflow-wrap: anywhere; }
+.hd-pk a:hover { background: var(--accent); color: var(--on-accent); }
+.hd-empty { font-size: var(--fs-lg); }
+.hd-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.25rem 0; }
+.hd-btn { font: inherit; font-weight: 700; padding: .8rem 1.5rem; border-radius: 999px; border: 2px solid var(--accent-on-dark); background: var(--accent-on-dark); color: var(--dark); text-decoration: none; display: inline-block; transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+.hd-btn:hover { transform: translateY(-2px); }
+.hd-btn--ghost { background: transparent; color: var(--on-dark); }
+.hd-note { font-size: var(--fs-sm); color: var(--on-dark-muted); max-width: 65ch; }
+.hd-story-text, .hd-story h3, .hd-val, .hd-metric dt { overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { .hd-chip, .hd-btn { transition: none; } .hd-chip:hover, .hd-btn:hover { transform: none; } }

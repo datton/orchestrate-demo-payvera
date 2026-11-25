@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Händler-Geschichten | Payvera</title>
+<meta name="description" content="Fünf erfundene Beispiel-Händler, vorher und nachher: Café, Restaurant, Bar, Bäckerei und Marktstand. Alle Zahlen sind Beispiele.">
+<style>@view-transition { navigation: auto; }</style>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/cart.css">
+<link rel="stylesheet" href="../css/haendler.css">
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/haendler.js" defer></script>
+</head>
+<body>
+<main id="main">
+  <section class="band hd-hero">
+    <p class="hd-eyebrow" data-reveal>Händler <span class="hd-tag">Erfunden, nur Beispiele</span></p>
+    <h1 data-words>So könnte es bei dir laufen.</h1>
+    <p class="hd-lead" data-reveal>Fünf frei erfundene Händler erzählen, wie ihr Alltag vorher und nachher aussehen könnte. Alle Namen und Zahlen sind Beispiele, keine echten Betriebe und keine Versprechen.</p>
+  </section>
+
+  <section class="band band--dark hd-marquee" aria-hidden="true">
+    <div data-marquee class="hd-marquee-text">Café · Restaurant · Bar · Bäckerei · Marktstand · Café · Restaurant · Bar · Bäckerei · Marktstand ·</div>
+  </section>
+
+  <section class="band hd-sec" id="geschichten" aria-labelledby="h-filter">
+    <h2 id="h-filter" data-reveal>Such dir deine Branche aus.</h2>
+    <div class="hd-filter" role="group" aria-label="Nach Branche filtern">
+      <button type="button" class="hd-chip" data-f="alle" aria-pressed="true">Alle</button>
+      <button type="button" class="hd-chip" data-f="cafe" aria-pressed="false">Café</button>
+      <button type="button" class="hd-chip" data-f="restaurant" aria-pressed="false">Restaurant</button>
+      <button type="button" class="hd-chip" data-f="bar" aria-pressed="false">Bar</button>
+      <button type="button" class="hd-chip" data-f="baeckerei" aria-pressed="false">Bäckerei</button>
+      <button type="button" class="hd-chip" data-f="markt" aria-pressed="false">Marktstand</button>
+    </div>
+    <p class="hd-count" id="hd-count" role="status" aria-live="polite">5 von 5 Geschichten</p>
+
+    <div class="hd-list">
+      <article class="hd-story" id="cafe" data-b="cafe" data-pk="tisch-qr-set digitale-speisekarte" aria-labelledby="t-cafe">
+        <p class="hd-branche">Café</p>
+        <h3 id="t-cafe">Café Lindenblatt <span class="hd-tag">erfunden</span></h3>
+        <p class="hd-story-text"><strong>Vorher:</strong> Zur Mittagszeit stehen die Gäste an der Theke Schlange, weil jede Bestellung mit Karte oder Bargeld einzeln abgerechnet wird. <strong>Nachher:</strong> Die Gäste bestellen am Platz über den QR-Code auf dem Tisch und die Theke wird freier.</p>
+        <dl class="hd-metrics">
+          <div class="hd-metric"><dt>Wartezeit beim Bezahlen</dt><dd><span class="hd-bar hd-bar--vor" style="--w:100%"></span><span class="hd-val">Vorher 6 Min.</span><span class="hd-bar hd-bar--nach" style="--w:33%"></span><span class="hd-val">Nachher 2 Min.</span></dd></div>
+          <div class="hd-metric"><dt>Bestellungen pro Stunde zur Stoßzeit</dt><dd><span class="hd-bar hd-bar--vor" style="--w:73%"></span><span class="hd-val">Vorher 38</span><span class="hd-bar hd-bar--nach" style="--w:100%"></span><span class="hd-val">Nachher 52</span></dd></div>
+        </dl>
+        <p class="hd-fine">Beispielzahlen, erfunden. Dein Betrieb kann anders aussehen.</p>
+        <div class="hd-pk"><p class="hd-pk-h">Passende Pakete</p><ul><li><a href="services.html#tisch-qr-set" data-item="tisch-qr-set">Tisch-QR-Set</a></li><li><a href="services.html#digitale-speisekarte" data-item="digitale-speisekarte">Digitale Speisekarte</a></li></ul></div>
+      </article>
+
+      <article class="hd-story" id="restaurant" data-b="restaurant" data-pk="bezahl-qr tablet-kasse speisekarte-einrichtung" aria-labelledby="t-restaurant">
+        <p class="hd-branche">Restaurant</p>
+        <h3 id="t-restaurant">Restaurant Zur Roten Gans <span class="hd-tag">erfunden</span></h3>
+        <p class="hd-story-text"><strong>Vorher:</strong> Wer zahlen will, wartet oft lange auf die Rechnung und das Kartengerät wandert von Tisch zu Tisch. <strong>Nachher:</strong> Die Gäste bezahlen am Tisch per QR-Code und das Team nutzt eine Tablet-Kasse mit der digitalen Speisekarte.</p>
+        <dl class="hd-metrics">
+          <div class="hd-metric"><dt>Zeit bis zur Rechnung</dt><dd><span class="hd-bar hd-bar--vor" style="--w:100%"></span><span class="hd-val">Vorher 14 Min.</span><span class="hd-bar hd-bar--nach" style="--w:36%"></span><span class="hd-val">Nachher 5 Min.</span></dd></div>
+          <div class="hd-metric"><dt>Gäste pro Tisch und Abend</dt><dd><span class="hd-bar hd-bar--vor" style="--w:81%"></span><span class="hd-val">Vorher 2,1</span><span class="hd-bar hd-bar--nach" style="--w:100%"></span><span class="hd-val">Nachher 2,6</span></dd></div>
+        </dl>
+        <p class="hd-fine">Beispielzahlen, erfunden. Dein Betrieb kann anders aussehen.</p>
+        <div class="hd-pk"><p class="hd-pk-h">Passende Pakete</p><ul><li><a href="services.html#bezahl-qr" data-item="bezahl-qr">Bezahl-QR</a></li><li><a href="services.html#tablet-kasse" data-item="tablet-kasse">Tablet-Kasse</a></li><li><a href="services.html#speisekarte-einrichtung" data-item="speisekarte-einrichtung">Einrichtung der Speisekarte</a></li></ul></div>
+      </article>
+
+      <article class="hd-story" id="bar" data-b="bar" data-pk="bezahl-qr aufsteller" aria-labelledby="t-bar">
+        <p class="hd-branche">Bar</p>
+        <h3 id="t-bar">Bar Nachtigall <span class="hd-tag">erfunden</span></h3>
+        <p class="hd-story-text"><strong>Vorher:</strong> Gegen Mitternacht drängen sich alle gleichzeitig am Tresen, um ihre Getränke zu bezahlen. <strong>Nachher:</strong> Ein Bezahl-QR auf den Tischaufstellern lässt die Gäste in Ruhe zahlen, wenn sie gehen möchten.</p>
+        <dl class="hd-metrics">
+          <div class="hd-metric"><dt>Wartezeit am Tresen zur Stoßzeit</dt><dd><span class="hd-bar hd-bar--vor" style="--w:100%"></span><span class="hd-val">Vorher 25 Min.</span><span class="hd-bar hd-bar--nach" style="--w:32%"></span><span class="hd-val">Nachher 8 Min.</span></dd></div>
+        </dl>
+        <p class="hd-fine">Beispielzahlen, erfunden. Dein Betrieb kann anders aussehen.</p>
+        <div class="hd-pk"><p class="hd-pk-h">Passende Pakete</p><ul><li><a href="services.html#bezahl-qr" data-item="bezahl-qr">Bezahl-QR</a></li><li><a href="services.html#aufsteller" data-item="aufsteller">Tischaufsteller</a></li></ul></div>
+      </article>
+
+      <article class="hd-story" id="baeckerei" data-b="baeckerei" data-pk="tablet-kasse schulung" aria-labelledby="t-baeckerei">
+        <p class="hd-branche">Bäckerei</p>
+        <h3 id="t-baeckerei">Bäckerei Krümelwerk <span class="hd-tag">erfunden</span></h3>
+        <p class="hd-story-text"><strong>Vorher:</strong> Morgens vor der Arbeit reicht die Schlange bis auf den Gehweg, weil an einer einzigen Kasse alles zusammenläuft. <strong>Nachher:</strong> Mit einer Tablet-Kasse und einer kurzen Schulung für das Team läuft der Verkauf schneller.</p>
+        <dl class="hd-metrics">
+          <div class="hd-metric"><dt>Wartende in der Morgenschlange</dt><dd><span class="hd-bar hd-bar--vor" style="--w:100%"></span><span class="hd-val">Vorher 9 Personen</span><span class="hd-bar hd-bar--nach" style="--w:44%"></span><span class="hd-val">Nachher 4 Personen</span></dd></div>
+        </dl>
+        <p class="hd-fine">Beispielzahlen, erfunden. Dein Betrieb kann anders aussehen.</p>
+        <div class="hd-pk"><p class="hd-pk-h">Passende Pakete</p><ul><li><a href="services.html#tablet-kasse" data-item="tablet-kasse">Tablet-Kasse</a></li><li><a href="services.html#schulung" data-item="schulung">Team-Schulung</a></li></ul></div>
+      </article>
+
+      <article class="hd-story" id="markt" data-b="markt" data-pk="bezahl-qr aufsteller" aria-labelledby="t-markt">
+        <p class="hd-branche">Marktstand</p>
+        <h3 id="t-markt">Obststand Brandt <span class="hd-tag">erfunden</span></h3>
+        <p class="hd-story-text"><strong>Vorher:</strong> Am Wochenmarkt fehlt oft das passende Kleingeld und kleine Einkäufe bleiben dann liegen. <strong>Nachher:</strong> Ein Bezahl-QR am Stand macht auch den Einkauf von nur einem Korb Obst einfach.</p>
+        <dl class="hd-metrics">
+          <div class="hd-metric"><dt>Zeit pro Bezahlvorgang am Stand</dt><dd><span class="hd-bar hd-bar--vor" style="--w:100%"></span><span class="hd-val">Vorher 3 Min.</span><span class="hd-bar hd-bar--nach" style="--w:33%"></span><span class="hd-val">Nachher 1 Min.</span></dd></div>
+        </dl>
+        <p class="hd-fine">Beispielzahlen, erfunden. Dein Betrieb kann anders aussehen.</p>
+        <div class="hd-pk"><p class="hd-pk-h">Passende Pakete</p><ul><li><a href="services.html#bezahl-qr" data-item="bezahl-qr">Bezahl-QR</a></li><li><a href="services.html#aufsteller" data-item="aufsteller">Tischaufsteller</a></li></ul></div>
+      </article>
+    </div>
+    <p class="hd-empty" id="hd-empty" hidden>Für diese Branche gibt es noch keine Geschichte.</p>
+  </section>
+
+  <section class="band band--dark hd-sec hd-cta" aria-labelledby="h-cta">
+    <h2 id="h-cta" data-reveal>Welches Paket passt zu dir?</h2>
+    <p class="hd-lead" data-reveal>Schau dir alle Pakete an oder rechne mit Beispielzahlen aus, was sich für dich ändern könnte.</p>
+    <p class="hd-actions" data-reveal><a class="hd-btn" href="services.html">Zu den Paketen</a> <a class="hd-btn hd-btn--ghost" href="rechner.html">Zum Rechner</a></p>
+    <p class="hd-note" data-reveal>Fiktives Demo-Unternehmen. Preise und Leistungen sind Beispiele, keine Angebote. Demo-Shop: nur Testzahlungen, es bewegt sich kein echtes Geld.</p>
+  </section>
+</main>
+</body>
+</html>
