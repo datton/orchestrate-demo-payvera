@@ -5,11 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Payvera: Kassen-Lösungen mit QR-Code, Tablet und digitaler Karte</title>
 <meta name="description" content="QR-Codes für Tisch und Bezahlen, Tablets, digitale Speisekarten und mehr. Ein fiktives Demo-Unternehmen; nur Testzahlungen.">
+<style>@view-transition { navigation: auto; }</style>
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/shop/core.css">
 <link rel="stylesheet" href="css/shop/cart.css">
+<style>
+.h-hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:6rem var(--gutter) 4rem;background:radial-gradient(52rem 26rem at 95% 5%,var(--accent-soft),transparent 70%),var(--bg);position:relative;overflow:hidden}
+.h-hero h1{font-family:var(--font-display);font-weight:var(--fw-display);font-size:min(var(--fs-h1),11.2vw);overflow-wrap:break-word;line-height:var(--lh-tight);letter-spacing:var(--track-display);margin:0 0 1.5rem;max-width:15ch}
+.h-hero .lead{font-size:var(--fs-lg);max-width:58ch;margin:0 0 2rem}
+.h-hero .qr{position:absolute;right:max(1rem,5vw);bottom:3rem;width:clamp(5rem,14vw,11rem);opacity:.16}
+.kin{background:linear-gradient(90deg,#c8101e,#f0502f,#ff8a3d,#f0502f,#c8101e);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:h-sweep 7s linear infinite}
+@keyframes h-sweep{to{background-position:-200% 0}}
+.h-tag{display:inline-block;align-self:flex-start;padding:.3rem .9rem;border-radius:var(--radius-pill);background:var(--accent-soft);color:var(--accent-strong);font-weight:700;font-size:.85rem;margin-bottom:1.2rem}
+.h-btn{display:inline-flex;align-items:center;min-height:48px;padding:.75rem 1.6rem;border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);font:inherit;font-weight:700;text-decoration:none;border:2px solid var(--accent);cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.h-btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.h-btn.h-btn--ghost{background:transparent;color:inherit;border-color:currentColor;margin-left:.75rem}
+.band--dark .h-btn{background:#fff;color:var(--dark);border-color:#fff}
+.band--dark .h-btn.h-btn--ghost{background:transparent;color:#fff;border-color:#fff}
+.h-big{font-family:var(--font-display);font-weight:var(--fw-display);font-size:var(--fs-h2);line-height:var(--lh-tight);letter-spacing:var(--track-h2);margin:0 0 1.5rem;max-width:20ch}
+.h-marq{overflow:hidden;white-space:nowrap}.h-marq span{display:inline-block;font-family:var(--font-display);font-size:var(--fs-giant);font-weight:850;letter-spacing:var(--track-display);padding-right:2rem;background:var(--gradient-text-dark);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h-state{font-family:var(--font-display);font-size:clamp(1.8rem,4.4vw,3.4rem);line-height:var(--lh-snug);max-width:28ch;margin:0}
+.h-note{font-size:.9rem;color:var(--text-muted);max-width:65ch}
+.band--dark .h-note{color:var(--on-dark-muted)}
+.h-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1.25rem;margin:0;padding:0;list-style:none}
+.h-card{display:flex;flex-direction:column;gap:.5rem;padding:1.6rem;border:var(--border);border-radius:var(--radius-lg);background:var(--surface);color:var(--text);box-shadow:var(--shadow);transition:transform .3s var(--ease)}
+.h-card:hover{transform:translateY(-4px)}
+.h-card h3{margin:0;font-family:var(--font-display);font-size:1.35rem}.h-card p{margin:0}
+.h-price{font-family:var(--font-mono);font-size:1.7rem;font-weight:700;margin-top:auto;font-variant-numeric:tabular-nums}.h-price small{font-family:var(--font-sans);font-size:.9rem;font-weight:500;color:var(--text-muted)}
+.h-card a.more{font-weight:700;color:var(--accent-strong)}
+.h-steps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem;align-items:start}
+.h-steps [data-step-word]{position:sticky;top:20vh;font-family:var(--font-display);font-size:min(var(--fs-giant),10.5vw);overflow-wrap:normal;font-weight:850;letter-spacing:var(--track-display);line-height:1;background:var(--gradient-text-dark);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h-steps .step{min-height:60vh;display:flex;align-items:center;font-family:var(--font-display);font-size:var(--fs-step);line-height:var(--lh-snug);max-width:22ch}
+@media(max-width:64rem){.h-steps{grid-template-columns:minmax(0,1fr);gap:1.5rem}.h-steps [data-step-word]{font-size:min(var(--fs-giant),13vw);position:static}.h-steps .step{min-height:auto;padding-block:1.5rem}.h-btn.h-btn--ghost{margin:.75rem 0 0}}
+.h-why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:1.25rem;margin:0;padding:0;list-style:none}
+.h-why li{padding:1.5rem;border:1px solid var(--on-dark-muted);border-radius:var(--radius-lg);background:var(--dark-2);color:var(--on-dark)}
+.h-why h3{margin:0 0 .5rem;font-family:var(--font-display);font-size:1.3rem}.h-why p{margin:0}
+.h-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:2rem}
+.h-nums b{display:block;font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);letter-spacing:var(--track-display);line-height:1}
+.h-tool{background:var(--surface);color:var(--text);border:var(--border);border-radius:var(--radius-lg);padding:clamp(1.25rem,3vw,2.2rem);box-shadow:var(--shadow)}
+.h-tool h3{margin-top:0;font-family:var(--font-display)}
+.h-tool fieldset{border:0;padding:0;margin:0 0 1.2rem}.h-tool legend{font-weight:700;margin-bottom:.5rem}
+.h-tool label{display:flex;gap:.6rem;align-items:center;min-height:44px;cursor:pointer}
+.h-tool input[type=checkbox]{width:1.2rem;height:1.2rem;accent-color:var(--accent)}
+.h-tool .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.5rem 1rem;align-items:center;margin-bottom:.9rem}
+.h-tool .row label{min-height:0}
+.h-tool input[type=number]{width:5.5rem;min-height:44px;font:inherit;font-family:var(--font-mono);padding:.4rem .6rem;border:2px solid var(--field-line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text)}
+.h-out{margin-top:1.2rem;font-weight:600}.h-out ul{margin:.6rem 0 0;padding-left:1.2rem;font-weight:400}.h-out li{margin:.3rem 0}
+.h-sum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.h-sum div{padding:1rem;border-radius:var(--radius);background:var(--surface-2)}
+.h-sum b{display:block;font-family:var(--font-mono);font-size:clamp(1.3rem,3.4vw,1.9rem);font-variant-numeric:tabular-nums;color:var(--accent-strong)}
+.h-sum span{font-size:.85rem;color:var(--text-muted)}
+.h-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:2rem;align-items:start}
+.h-lines{margin:.6rem 0 0;padding:0;list-style:none;font-size:.95rem}.h-lines li{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;border-bottom:1px dashed var(--line)}.h-lines span:last-child{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+@media(prefers-reduced-motion:reduce){.kin{animation:none}}
+</style>
 <script src="js/shop/core.js" defer></script>
 <script src="js/shop/cart.js" defer></script>
 <script src="js/nav.js" defer></script>
@@ -18,7 +69,117 @@
 </head>
 <body>
 <main id="main">
-<section class="band"><h1>Payvera</h1><p>Seitengerüst: die Startseite baut Full-Stack.</p></section>
+
+<section class="h-hero" id="top">
+  <span class="h-tag">Fiktive Demo-Firma: nur Testzahlungen, kein echtes Geld</span>
+  <h1 data-words>Kassieren, <span class="kin">so einfach wie scannen.</span></h1>
+  <p class="lead" data-reveal>Payvera liefert Gastronomen QR-Codes für Tisch und Bezahlen, Kassen-Tablets und digitale Speisekarten. Klare Demo-Preise in Euro, alles in einem Warenkorb.</p>
+  <p data-reveal><a class="h-btn" href="pages/services.html">Angebote und Preise</a><a class="h-btn h-btn--ghost" href="pages/demo-termin.html">Demo-Termin anfragen</a></p>
+  <div class="qr" aria-hidden="true"></div>
+</section>
+
+<section class="band band--dark" aria-label="Was wir anbieten">
+  <div class="h-marq" data-marquee aria-hidden="true"><span>Tisch-QR · Bezahl-QR · Tablet-Kasse · Digitale Karte · Tisch-QR · Bezahl-QR · Tablet-Kasse · Digitale Karte · </span></div>
+</section>
+
+<section class="band" id="hilfe" aria-labelledby="h-h">
+  <h2 class="h-big" id="h-h" data-words>Was an der Kasse zählt</h2>
+  <ul class="h-cards">
+    <li class="h-card" data-reveal><h3>QR-Codes</h3><p>Ein Code pro Tisch führt zur Speisekarte oder zur Bezahlseite deines Lokals.</p><a class="more" href="pages/services.html#qr">QR-Codes ansehen</a></li>
+    <li class="h-card" data-reveal><h3>Tablets</h3><p>Die Kassen-Oberfläche, startklar eingerichtet für Theke oder Tisch.</p><a class="more" href="pages/services.html#tablets">Tablets ansehen</a></li>
+    <li class="h-card" data-reveal><h3>Digitale Speisekarte</h3><p>Kategorien, Preise und Allergenhinweise, die du selbst pflegst.</p><a class="more" href="pages/services.html#menus">Speisekarten ansehen</a></li>
+    <li class="h-card" data-reveal><h3>Zubehör</h3><p>Aufsteller für die Tische und eine Schulung für dein Team.</p><a class="more" href="pages/services.html#zubehoer">Zubehör ansehen</a></li>
+  </ul>
+</section>
+
+<section class="band band--dark">
+  <p class="h-state" data-fill>Wenn Gäste am Tisch scannen und bezahlen, bleibt Zeit für das, was dein Lokal ausmacht: Essen, Service und Gespräche.</p>
+</section>
+
+<section class="band" id="angebote" aria-labelledby="a-h">
+  <h2 class="h-big" id="a-h" data-words>Angebote und Preise</h2>
+  <ul class="h-cards" id="service-cards" aria-live="polite">
+    <li class="h-card"><h3>Unsere Angebote</h3><p>Alle Angebote, Optionen und Preise findest du auf der Angebotsseite.</p><a class="more" href="pages/services.html">Angebote öffnen</a></li>
+  </ul>
+  <p class="h-note" style="margin-top:1.5rem" data-reveal>Payvera, die Angebote und die Preise sind frei erfunden (Demo). Demo-Shop: nur Testzahlungen, es bewegt sich kein echtes Geld.</p>
+  <p data-reveal><a class="h-btn" href="pages/services.html">Alle Angebote</a><a class="h-btn h-btn--ghost" href="pages/rechner.html">Zum Preisrechner</a></p>
+</section>
+
+<section class="band band--dark" id="so">
+  <div class="h-steps" data-sticky-steps>
+    <div data-step-word aria-hidden="true">Wählen</div>
+    <div>
+      <div class="step" data-step="Wählen">Du suchst aus, was dein Lokal braucht: Codes, Tablet, Karte.</div>
+      <div class="step" data-step="Bezahlen">Du bezahlst im Demo-Warenkorb, mit Testkarte und ohne echtes Geld.</div>
+      <div class="step" data-step="Einrichten">Wir richten Codes, Karte und Tablet für dein Lokal ein.</div>
+      <div class="step" data-step="Scannen">Gäste scannen den Code am Tisch und sehen Karte oder Bezahlseite.</div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="helfer" aria-labelledby="t-h">
+  <h2 class="h-big" id="t-h" data-words>Zwei kleine Helfer</h2>
+  <div class="h-two">
+    <form class="h-tool" id="plan" novalidate data-reveal aria-labelledby="pl-h">
+      <h3 id="pl-h">Start-Paket planen</h3>
+      <div class="row"><label for="pl-t">Wie viele Tische hast du?</label><input id="pl-t" type="number" min="1" max="240" value="18" inputmode="numeric"></div>
+      <div class="row"><label for="pl-k">Wie viele Kassen-Tablets?</label><input id="pl-k" type="number" min="0" max="20" value="1" inputmode="numeric"></div>
+      <fieldset><legend>Dazu</legend>
+        <label><input type="checkbox" id="pl-b" checked> Bezahl-QR für einen Standort</label>
+        <label><input type="checkbox" id="pl-m" checked> Digitale Speisekarte</label>
+        <label><input type="checkbox" id="pl-e"> Einrichtung der Speisekarte durch uns</label>
+        <label><input type="checkbox" id="pl-s"> Team-Schulung</label>
+      </fieldset>
+      <div class="h-sum" role="status" aria-live="polite">
+        <div><b id="pl-once">0,00 €</b><span>einmalig, ab</span></div>
+        <div><b id="pl-month">0,00 €</b><span>pro Monat</span></div>
+      </div>
+      <ul class="h-lines" id="pl-lines"></ul>
+      <p class="h-note">Ein Tisch-QR-Set reicht für zwölf Tische. Preise ohne Optionen wie Holz-Ausführung (ab-Preise). Eine Beispielrechnung, kein Angebot. <a href="pages/rechner.html">Zum ausführlichen Preisrechner</a></p>
+    </form>
+    <form class="h-tool" id="pick" novalidate data-reveal aria-labelledby="p-h">
+      <h3 id="p-h">Was passt zu deinem Lokal?</h3>
+      <fieldset><legend>Kreuze an, was zutrifft</legend>
+        <label><input type="checkbox" name="n" value="menu"> Gäste sollen die Karte am Handy lesen</label>
+        <label><input type="checkbox" name="n" value="pay"> Gäste sollen am Tisch bezahlen</label>
+        <label><input type="checkbox" name="n" value="till"> Ich brauche eine neue Kasse</label>
+        <label><input type="checkbox" name="n" value="team"> Mein Team braucht eine Einweisung</label>
+        <label><input type="checkbox" name="n" value="stand"> Die Codes sollen schön auf dem Tisch stehen</label>
+      </fieldset>
+      <button class="h-btn" type="submit">Zeig mir passende Angebote</button>
+      <div class="h-out" id="pick-out" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<section class="band band--dark" id="vertrauen" aria-labelledby="v-h">
+  <h2 class="h-big" id="v-h" data-words>Warum Payvera</h2>
+  <ul class="h-why">
+    <li data-reveal><h3>Klare Preise</h3><p>Der Preis, den du siehst, ist der Preis im Warenkorb, aus unserer Angebotsliste.</p></li>
+    <li data-reveal><h3>Ehrliche Beispiele</h3><p>Rechner und Preise sind Beispielzahlen. Wir nennen hier keine echten Gebührensätze.</p></li>
+    <li data-reveal><h3>Zum Anfassen</h3><p>Den Ablauf siehst du in einer Mini-Demo, bevor du etwas in den Warenkorb legst.</p></li>
+    <li data-reveal><h3>Deine Daten bleiben bei dir</h3><p>Termine und Rechnerwerte bleiben in deinem Browser. Es wird nichts gesendet.</p></li>
+  </ul>
+  <div class="h-nums" style="margin-top:4rem">
+    <div data-reveal><b data-count="4">4</b>Bereiche</div>
+    <div data-reveal><b data-count="7">7</b>Angebote</div>
+    <div data-reveal><b data-count="12">12</b>Tische pro QR-Set</div>
+  </div>
+</section>
+
+<section class="band" id="mehr" aria-labelledby="g-h">
+  <h2 class="h-big" id="g-h" data-words>Erst ansehen, dann entscheiden</h2>
+  <p class="prose" data-reveal>Schau dir den Ablauf an, rechne deinen Fall durch oder sprich mit uns in einem Demo-Termin.</p>
+  <ul class="h-cards">
+    <li class="h-card" data-reveal><h3>So funktioniert es</h3><p>Bezahlen per QR-Code in Schritten, mit einer kleinen Demo zum Ausprobieren.</p><a class="more" href="pages/so-funktioniert.html">Ablauf ansehen</a></li>
+    <li class="h-card" data-reveal><h3>Gebühren- und Preisrechner</h3><p>Rechne mit Beispielzahlen durch, was dein Lokal kosten würde.</p><a class="more" href="pages/rechner.html">Rechner öffnen</a></li>
+    <li class="h-card" data-reveal><h3>Demo-Termin</h3><p>Wähle einen freien Termin im Kalender. Die Anfrage bleibt in deinem Browser.</p><a class="more" href="pages/demo-termin.html">Kalender öffnen</a></li>
+    <li class="h-card" data-reveal><h3>Für Händler</h3><p>Was Payvera für Lokale und Händler bedeutet, auf einer eigenen Seite.</p><a class="more" href="pages/haendler.html">Händlerseite</a></li>
+  </ul>
+  <p style="margin-top:1.5rem" data-reveal><a class="h-btn" href="pages/account.html">Meine Einkäufe</a></p>
+  <p class="h-note" style="margin-top:2.5rem" data-reveal>Fiktives Demo-Unternehmen. Preise und Leistungen sind Beispiele, keine Angebote.</p>
+</section>
+
 </main>
 </body>
 </html>
