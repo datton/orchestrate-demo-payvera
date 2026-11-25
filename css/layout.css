@@ -28,7 +28,7 @@ main{display:block;outline:none}
 .nav-toggle__bars,.nav-toggle__bars::before{display:block;width:1.2rem;height:2px;background:currentColor;position:relative;transition:transform .3s var(--lx-ease)}
 .nav-toggle__bars::before{content:"";position:absolute;top:-6px;left:0}
 .is-open .nav-toggle__bars{transform:translateY(0) rotate(45deg)}.is-open .nav-toggle__bars::before{transform:translateY(6px) rotate(-90deg)}
-@media (max-width:64rem){
+@media (max-width:75rem){
   .nav-toggle{display:grid}
   .site-header__inner{flex-wrap:wrap}
   .site-brand{order:1}.site-header__actions{order:2}.nav-toggle{order:3}
