@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zur Kasse</title>
+<meta name="description" content="Prüfe deine Bestellung und bezahle. Demo-Shop: nur Testzahlungen.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/checkout.css">
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/app.js" defer></script>
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/shop/checkout.js" defer></script>
+<style>@view-transition { navigation: auto; }</style>
+</head>
+<body>
+<main id="main">
+  <section class="band checkout">
+    <div class="checkout__wrap">
+      <h1 data-words>Zur Kasse</h1>
+      <p class="checkout__lead">Schau noch einmal über deine Bestellung, sag uns, wohin die Bestätigung gehen soll, und bezahle dann in Ruhe.</p>
+      <div id="co-banner" role="status" aria-live="polite"></div>
+      <div id="co-empty" class="shop-card checkout__empty" hidden>
+        <h2>Dein Warenkorb ist noch leer</h2>
+        <p>Wähle zuerst ein Angebot, dann komm hierher zurück.</p>
+        <a class="btn" href="services.html">Angebote ansehen</a>
+      </div>
+      <div class="checkout__grid" id="co-grid">
+        <form id="co-form" class="shop-card" novalidate>
+          <h2>Deine Angaben</h2>
+          <div class="shop-field">
+            <label for="co-name">Vor- und Nachname</label>
+            <input id="co-name" name="name" autocomplete="name" required maxlength="80">
+            <span class="shop-error" id="co-name-err" role="alert"></span>
+          </div>
+          <div class="shop-field">
+            <label for="co-email">E-Mail für die Bestätigung</label>
+            <input id="co-email" name="email" type="email" autocomplete="email" required maxlength="120">
+            <span class="shop-error" id="co-email-err" role="alert"></span>
+          </div>
+          <div class="shop-field">
+            <label for="co-note">Wünsche oder Hinweise (optional)</label>
+            <textarea id="co-note" name="note" rows="3" maxlength="300"></textarea>
+          </div>
+
+          <h2>Gutschein</h2>
+          <div class="shop-field">
+            <label for="co-coupon">Gutschein</label>
+            <select id="co-coupon"><option value="best">Bester Gutschein (automatisch)</option><option value="">Kein Gutschein</option></select>
+            <span class="checkout__hint" id="co-coupon-hint"></span>
+          </div>
+
+          <div id="co-giftblock" hidden>
+          <h2>Geschenkkarte</h2>
+          <div class="shop-field">
+            <label for="co-gift">Code der Geschenkkarte</label>
+            <div class="checkout__row">
+              <input id="co-gift" autocomplete="off" placeholder="Code eingeben" maxlength="40">
+              <button type="button" class="btn btn--ghost" id="co-gift-apply">Einlösen</button>
+            </div>
+            <div id="co-wallet" class="checkout__chips"></div>
+            <span class="shop-error" id="co-gift-err" role="alert"></span>
+          </div>
+          </div>
+        </form>
+
+        <aside class="shop-card checkout__summary" aria-labelledby="co-sum-h">
+          <h2 id="co-sum-h">Deine Bestellung</h2>
+          <ul id="co-lines" class="checkout__lines"></ul>
+          <dl class="checkout__totals" id="co-totals"></dl>
+          <p class="shop-error" id="co-error" role="alert"></p>
+          <button type="button" class="btn btn--ghost" id="co-retry" hidden>Nochmal versuchen</button>
+          <button class="btn checkout__pay" id="co-pay" type="submit" form="co-form" disabled>Bezahlen</button>
+          <p class="shop-testlabel">Demo-Shop: nur Testzahlungen, es bewegt sich kein echtes Geld.</p>
+          <p class="checkout__hint">Testkarte 4242 4242 4242 4242, beliebiges Ablaufdatum in der Zukunft, beliebige 3 Ziffern.</p>
+          <a href="services.html" class="checkout__back">Weiter stöbern</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
