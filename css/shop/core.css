@@ -1,0 +1,63 @@
+/* Shared shop styles (Lead Developer). Uses tokens from css/tokens.css with safe fallbacks. */
+.btn, .shop-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 44px; padding: .7rem 1.4rem; border: 1.5px solid transparent; border-radius: 999px;
+  font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
+  background: var(--accent, #b4342d); color: var(--on-accent, #fff);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, background .2s;
+}
+.btn:hover, .shop-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+.btn:focus-visible, .shop-btn:focus-visible, .shop-chip:focus-visible, .shop-sheet button:focus-visible { outline: 3px solid var(--focus, #1a56db); outline-offset: 2px; }
+.btn[disabled], .shop-btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn--ghost, .shop-btn--ghost { background: transparent; color: inherit; border-color: currentColor; }
+
+.shop-chip {
+  display: inline-flex; align-items: center; gap: .35rem; padding: .25rem .8rem; border-radius: 999px;
+  font-size: .85rem; font-weight: 600; background: rgba(127,127,127,.14); color: inherit; border: 0;
+}
+.shop-chip--accent { background: var(--accent, #b4342d); color: var(--on-accent, #fff); }
+
+.shop-card { background: var(--surface, #fff); color: var(--text, #111); border-radius: 20px; padding: clamp(1.2rem, 3vw, 2rem); box-shadow: 0 2px 4px rgba(0,0,0,.05), 0 12px 32px rgba(0,0,0,.08); }
+
+.shop-field { display: grid; grid-template-columns: minmax(0, 1fr); gap: .35rem; margin-block: 1rem; }
+.shop-field input, .shop-field select, .shop-field textarea { max-width: 100%; }
+.shop-field label { font-weight: 600; font-size: .95rem; }
+.shop-field input, .shop-field select, .shop-field textarea {
+  font: inherit; padding: .75rem 1rem; border-radius: 12px; border: 1.5px solid rgba(127,127,127,.5); background: var(--surface, #fff); color: inherit; min-height: 44px;
+}
+.shop-field input:focus-visible, .shop-field select:focus-visible, .shop-field textarea:focus-visible { outline: 3px solid var(--focus, #1a56db); outline-offset: 1px; }
+.shop-field .shop-error { color: var(--danger, #b00020); font-size: .9rem; }
+
+.shop-sheet-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.5); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 80; }
+.shop-sheet-backdrop.is-open { opacity: 1; pointer-events: auto; }
+.shop-sheet {
+  position: fixed; z-index: 90; background: var(--surface, #fff); color: var(--text, #111);
+  inset: auto 0 0 0; max-height: 90svh; overflow: auto; padding: 1.5rem; border-radius: 24px 24px 0 0;
+  transform: translateY(100%); transition: transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.shop-sheet.is-open { transform: none; }
+@media (min-width: 720px) {
+  .shop-sheet { inset: 0 0 0 auto; width: min(460px, 100vw); max-height: none; border-radius: 24px 0 0 24px; transform: translateX(100%); }
+  .shop-sheet.is-open { transform: none; }
+}
+
+.shop-stepper { display: inline-flex; align-items: center; gap: .25rem; border: 1.5px solid rgba(127,127,127,.5); border-radius: 999px; }
+.shop-stepper button { width: 44px; height: 44px; border: 0; background: transparent; color: inherit; font-size: 1.3rem; cursor: pointer; border-radius: 50%; }
+.shop-stepper output { min-width: 2ch; text-align: center; font-weight: 600; }
+
+#shop-toasts { position: fixed; z-index: 100; inset: auto 0 5rem 0; display: grid; justify-items: center; gap: .5rem; pointer-events: none; padding-inline: 1rem; }
+.shop-toast { background: #111; color: #fff; padding: .8rem 1.3rem; border-radius: 14px; box-shadow: 0 12px 32px rgba(0,0,0,.3); opacity: 0; transform: translateY(12px); transition: opacity .4s, transform .4s cubic-bezier(.2,.7,.2,1); }
+.shop-toast.is-in { opacity: 1; transform: none; }
+.shop-toast--error { background: #b00020; }
+
+.shop-testlabel { display: inline-block; padding: .35rem .8rem; border-radius: 8px; background: #fff3cd; color: #5c4300; font-weight: 600; font-size: .9rem; }
+.shop-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .shop-btn, .shop-sheet, .shop-sheet-backdrop, .shop-toast { transition: none; }
+}
+
+/* Guide gate (demo, not real protection): <body data-guide="item-id">, [data-locked] shown only when bought, [data-teaser] only when not. */
+.guide-checking [data-locked], .guide-checking [data-teaser] { visibility: hidden; }
+.guide-locked [data-locked] { display: none !important; }
+.guide-unlocked [data-teaser] { display: none !important; }

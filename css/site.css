@@ -1,0 +1,13 @@
+/* Site-wide base (Lead Developer). Tokens come from css/tokens.css. */
+@view-transition { navigation: auto; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.6; background: var(--bg, #fff); color: var(--text, #111); }
+img, svg { max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .2em; }
+:focus-visible { outline: 3px solid var(--focus, #1a56db); outline-offset: 2px; }
+.band { padding-block: clamp(5rem, 12vw, 10rem); padding-inline: max(1rem, 5vw); }
+.band--dark { background: var(--dark, #111); color: var(--on-dark, #fff); }
+.prose { max-width: 65ch; }
+.guide-note { font-size: .9rem; opacity: .8; border-left: 3px solid currentColor; padding-left: 1rem; max-width: 65ch; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
