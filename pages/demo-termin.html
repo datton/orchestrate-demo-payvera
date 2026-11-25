@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo-Termin anfragen</title>
+<meta name="description" content="Wähle einen Beispiel-Termin im Kalender und frage eine Demo an. Die Anfrage bleibt in deinem Browser.">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/layout.css">
+<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/shop/core.css">
+<link rel="stylesheet" href="../css/shop/cart.css">
+<link rel="stylesheet" href="../css/booking.css">
+<script src="../js/shop/core.js" defer></script>
+<script src="../js/shop/cart.js" defer></script>
+<script src="../js/nav.js" defer></script>
+<script src="../js/motion.js" defer></script>
+<script src="../js/tools.js" defer></script>
+<style>@view-transition { navigation: auto; }</style>
+</head>
+<body data-booking>
+<main id="main">
+  <section class="band bk">
+    <div class="bk__wrap">
+      <p class="bk__eyebrow" data-reveal>Demo-Anfrage</p>
+      <h1 data-words>Sieh Payvera an deinem Tisch.</h1>
+      <p class="bk__lead" data-reveal>Such dir im Kalender einen Termin aus und sag uns kurz, wer du bist. Die Termine sind Beispiele. Deine Anfrage bleibt in diesem Browser, es wird nichts gesendet.</p>
+
+      <div class="bk__grid">
+        <section class="bk__cal" aria-labelledby="bk-cal-h">
+          <div class="bk__calhead">
+            <button type="button" class="bk__nav" id="bk-prev" aria-label="Vorheriger Monat">&larr;</button>
+            <h2 id="bk-cal-h" aria-live="polite">Monat</h2>
+            <button type="button" class="bk__nav" id="bk-next" aria-label="Nächster Monat">&rarr;</button>
+          </div>
+          <div id="bk-grid" role="group" aria-labelledby="bk-cal-h" class="bk__days"></div>
+          <p class="bk__hint">Pfeiltasten wechseln den Tag, Enter wählt ihn. Beispiel-Termine ab übermorgen, Montag bis Freitag.</p>
+          <h3 id="bk-slots-h" class="bk__slotsh">Uhrzeiten</h3>
+          <div id="bk-slots" class="bk__slots" role="radiogroup" aria-labelledby="bk-slots-h"><p class="bk__muted">Wähle zuerst einen Tag.</p></div>
+        </section>
+
+        <form id="bk-form" class="bk__form" novalidate aria-labelledby="bk-form-h">
+          <h2 id="bk-form-h">Deine Angaben</h2>
+          <div class="bk__f"><label for="bk-name">Name</label><input id="bk-name" autocomplete="name" required></div>
+          <div class="bk__f"><label for="bk-biz">Betrieb</label><input id="bk-biz" autocomplete="organization" required></div>
+          <div class="bk__f"><label for="bk-ind">Branche</label>
+            <select id="bk-ind" required>
+              <option value="">Bitte wählen</option>
+              <option>Café oder Bäckerei</option><option>Restaurant oder Bar</option><option>Imbiss oder Foodtruck</option>
+              <option>Hotel oder Pension</option><option>Einzelhandel</option><option>Etwas anderes</option>
+            </select></div>
+          <fieldset class="bk__f"><legend>Interesse <span class="bk__unit">mindestens eins</span></legend>
+            <label class="bk__check"><input type="checkbox" name="bk-int" value="QR-Bezahlung am Tisch"><span>QR-Bezahlung am Tisch</span></label>
+            <label class="bk__check"><input type="checkbox" name="bk-int" value="Tablet an der Kasse"><span>Tablet an der Kasse</span></label>
+            <label class="bk__check"><input type="checkbox" name="bk-int" value="Kartenzahlung"><span>Kartenzahlung</span></label>
+          </fieldset>
+          <div class="bk__f"><label for="bk-when">Wunschtermin</label><input id="bk-when" readonly value="" placeholder="Noch keiner gewählt" aria-describedby="bk-when-h"><span id="bk-when-h" class="bk__unit">Wird oben im Kalender gewählt.</span></div>
+          <p id="bk-error" class="bk__error" role="alert" hidden></p>
+          <button type="submit" class="bk__btn">Demo anfragen</button>
+          <p class="bk__note">Nichts wird gesendet. Die Anfrage wird nur in diesem Browser gespeichert. Termine und Uhrzeiten sind Beispiele.</p>
+        </form>
+      </div>
+
+      <div id="bk-done" class="bk__done" role="status" aria-live="polite" tabindex="-1" hidden></div>
+      <section class="bk__mine" id="bk-mine-wrap" hidden aria-labelledby="bk-mine-h"><h2 id="bk-mine-h">Deine Anfragen in diesem Browser</h2><ul id="bk-mine"></ul></section>
+    </div>
+  </section>
+</main>
+</body>
+</html>
