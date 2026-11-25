@@ -1,0 +1,130 @@
+/* tokens.css — Designer. Payvera (Kassen- und Bezahllösungen): BOLD RED AND WHITE, trustworthy and clear.
+   Palette: crisp warm white pages, near-black ink text, ONE accent: signal red (#c8101e), and deep red full-bleed bands.
+   An original look: no brand lettering, no logo, no images. Pay-by-QR feel comes from CSS only (.qr pattern, .pill, .receipt).
+   Contrast (computed): text 17.8, muted 7.5 (6.6 on surface-2), red on page 5.7, white on red 5.9, white on deep red 7.9,
+   muted-on-dark 6.0, form borders 4.3 / 3.8 (need 3). Focus ring blue on light, yellow on red bands.
+   Type: heavy, tight system sans; tabular mono for prices. Motion: one easing, 400-900 ms, 60 ms stagger. */
+:root {
+  /* palette */
+  --bg: #fffaf8;
+  --surface: #ffffff;
+  --surface-2: #f7ebe8;
+  --text: #1a1214;             /* 17.8:1 on --bg */
+  --text-muted: #5e4f52;       /* 7.5:1 on --bg */
+  --line: #ead9d5;
+  --field-line: #85737a;       /* field and stepper borders: 4.3:1 on --bg, 3.8 on --surface-2 (needs 3:1) */
+  --dark: #a50d18;             /* deep red band */
+  --dark-2: #7d0a12;
+  --ink: #1a1214;              /* near-black band */
+  --on-dark: #ffffff;          /* 7.9:1 on --dark */
+  --on-dark-muted: #ffd9d6;    /* 6.0:1 on --dark */
+  --accent: #c8101e;           /* signal red: 5.7:1 on --bg */
+  --accent-strong: #9e0c17;    /* hover */
+  --accent-soft: #fde6e4;
+  --accent-on-dark: #ffffff;
+  --on-accent: #ffffff;        /* 5.9:1 on --accent */
+  --sun: #ffd23f;              /* highlight yellow, fills only */
+  --sun-ink: #7a5200;
+  --success: #17653f;          /* 6.8:1 */
+  --danger: #8f0a14;           /* 9.1:1 */
+  --warn-bg: #fff3c9;
+  --warn-text: #5c3d00;
+  --focus: #0b4fd1;
+  --focus-on-dark: #ffe27a;    /* 6.1:1 on --dark */
+
+  /* type */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --fw-display: 850;
+  --fs-xs: .8125rem;
+  --fs-sm: .9375rem;
+  --fs-base: 1.0625rem;
+  --fs-lg: clamp(1.2rem, 1rem + .8vw, 1.5rem);
+  --fs-step: clamp(1.5rem, 1.05rem + 1.8vw, 2.6rem);
+  --fs-h2: clamp(2rem, 1.1rem + 4.2vw, 4.75rem);
+  --fs-h1: clamp(2.6rem, 1.2rem + 7vw, 7.5rem);
+  --fs-giant: clamp(5rem, 2rem + 17vw, 18rem);
+  --lh-tight: .98;
+  --lh-snug: 1.15;
+  --lh-body: 1.6;
+  --track-display: -.045em;
+  --track-h2: -.035em;
+  --track-label: .12em;
+  --measure: 65ch;
+
+  /* spacing, shape, depth */
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem;
+  --section: clamp(5rem, 12vw, 10rem);
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --radius-sm: .6rem; --radius: 1.1rem; --radius-lg: 1.75rem; --radius-pill: 999px;
+  --border: 1px solid var(--line);
+  --rule: 1px solid var(--line);
+  --shadow-sm: 0 1px 2px rgba(60, 10, 14, .08), 0 3px 10px rgba(60, 10, 14, .06);
+  --shadow: 0 8px 28px rgba(60, 10, 14, .12), 0 2px 6px rgba(60, 10, 14, .06);
+  --shadow-lg: 0 28px 70px rgba(120, 8, 16, .22);
+  --glow: radial-gradient(55% 60% at 50% 40%, rgba(200, 16, 30, .24), rgba(255, 210, 63, .10) 50%, transparent 72%);
+  --gradient-text: linear-gradient(100deg, #c8101e 0%, #ee3b2d 50%, #c8101e 100%);
+  --gradient-text-dark: linear-gradient(100deg, #ffffff 0%, #ffd9d6 50%, #ffffff 100%);
+
+  /* CSS-only accents: a QR-like pixel pattern and a receipt zigzag */
+  --qr: conic-gradient(from 90deg at 50% 50%, currentColor 0 25%, transparent 0 50%, currentColor 0 75%, transparent 0) 0 0 / 14px 14px;
+  --zigzag: linear-gradient(135deg, var(--surface) 25%, transparent 25%) -8px 0 / 16px 16px,
+            linear-gradient(225deg, var(--surface) 25%, transparent 25%) -8px 0 / 16px 16px;
+
+  /* motion */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-fast: 400ms;
+  --dur: 650ms;
+  --dur-slow: 900ms;
+  --stagger: 60ms;
+  --rise: 1.25rem;
+  --blur-in: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur: 0ms; --dur-slow: 0ms; --stagger: 0ms; --rise: 0; --blur-in: 0; }
+}
+
+/* ---- vocabulary any page can use (all visible without JS) ---- */
+.text-gradient {
+  background: var(--gradient-text);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+}
+.band--dark .text-gradient { background-image: var(--gradient-text-dark); }
+.glow { background-image: var(--glow); }
+
+/* red full-bleed band; the near-black one is .band--ink */
+.band--ink { background: var(--ink); color: var(--on-dark); }
+
+/* small label: PAY BY QR */
+.label, .eyebrow {
+  font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: var(--track-label);
+  text-transform: uppercase; color: var(--accent); font-weight: 700;
+}
+.band--dark .label, .band--dark .eyebrow { color: var(--on-dark); }
+
+/* prices and figures line up */
+.num, .mono, .price { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* QR-style pixel decoration (decorative: pair with aria-hidden) */
+.qr { width: 7rem; aspect-ratio: 1; color: var(--accent); background: var(--qr); opacity: .9; border-radius: .4rem; }
+.band--dark .qr { color: var(--on-dark); }
+
+/* pill chip, e.g. "Demo-Preis" */
+.pill {
+  display: inline-block; padding: .25em .8em; border-radius: var(--radius-pill);
+  background: var(--accent-soft); color: var(--accent-strong); font-size: var(--fs-xs); font-weight: 700;
+}
+
+/* receipt card with a torn bottom edge */
+.receipt { background: var(--surface); box-shadow: var(--shadow); border-radius: var(--radius) var(--radius) 0 0; position: relative; }
+.receipt::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 8px; background: var(--zigzag); filter: drop-shadow(0 4px 4px rgba(60, 10, 14, .08));
+}
+
+/* keyboard focus stays visible on the red and ink bands and the footer */
+.band--dark, .band--ink, .site-footer { --focus: var(--focus-on-dark); }
