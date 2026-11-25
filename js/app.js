@@ -33,7 +33,7 @@
   });
 
   // Start-Paket-Planer: Tische -> Sets (12 pro Set), Tablets, Extras; einmalig und monatlich getrennt
-  function num(id, max) { var v = parseInt($(id).value, 10); if (isNaN(v) || v < 0) v = 0; return Math.min(v, max); }
+  function num(id, max) { var f = $(id), v = parseInt(f.value, 10); if (isNaN(v) || v < 0) v = 0; if (v > max) { v = max; f.value = max; } return v; }
   function plan() {
     if (!$('plan') || !items.length) return;
     var tables = num('pl-t', 240), tabs = num('pl-k', 20), sets = Math.ceil(tables / 12);
